@@ -1,0 +1,36 @@
+body{
+    background-color: aquamarine;
+}
+
+.title
+{
+    text-align: center;
+    font-style: italic;
+    font-family: 'Proxima Nova Soft', 'Helvetica Neue', sans-serif;
+}
+
+.container
+{
+    display:flex;
+    justify-content: center;
+    flex-basis: auto;
+    flex-grow: 1;
+}
+
+
+.grid
+{
+    border: 1px;
+    border-style:solid;
+    background-color: whitesmoke;
+}
+
+.grid-hover
+{
+    background-color:black;
+}
+
+.buttons
+{
+    text-align: center;
+}
