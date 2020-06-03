@@ -4,8 +4,6 @@
 
 body{
     background-color: aquamarine;
-    justify-content: center;
-    align-items: center;
 }
 
 .title
@@ -15,22 +13,68 @@ body{
     font-family: 'Proxima Nova Soft', 'Helvetica Neue', sans-serif;
 }
 
+.controls
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
 .container
 {
     display: grid;
     border: 1px solid;
     grid-template-columns: repeat(var(--gridSize), 1fr);
     grid-template-rows: repeat(var(--gridSize), 1fr);
-    height:500px;
-    width:500px;
-    margin-left: auto;
-    margin-right: auto;
+    height:380px;
+    width:490px;
+
+    box-sizing: content-box;
+    justify-content: center;
+    /*background-image: url('images/etch-a-sketch.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    /*margin-left: auto;
+    margin-right: auto;*/
+}
+
+.image
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    background-image: url('images/etch-a-sketch.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    resize:both;
+    height: 525px;
+    width: 640px;
+    text-align: center;
 }
 
 @media screen and (max-width: 420px) {
     .container {
+        height:220px;
+        width:250px;
+    }
+    .image{
         height:300px;
-        width:300px;
+        width:400px;
+    }
+
+    .controls{
+        flex-direction: column;
+    }
+
+    .buttons{
+        flex-direction: row !important;
+        justify-content: space-evenly;
+    }
+    .button-item{
+        margin: 0 5px;
     }
   }
 
@@ -48,5 +92,13 @@ body{
 
 .buttons
 {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left:1%;
+}
+
+.button-item
+{
+    margin: 25px 0;
 }
