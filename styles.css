@@ -1,5 +1,11 @@
+:root {
+    --gridSize: '----';
+  }
+
 body{
     background-color: aquamarine;
+    justify-content: center;
+    align-items: center;
 }
 
 .title
@@ -11,21 +17,24 @@ body{
 
 .container
 {
-    display:flex;
-    justify-content: center;
-    flex-basis: auto;
-    flex-grow: 1;
+    display: grid;
+    border: 1px solid;
+    grid-template-columns: repeat(var(--gridSize), 1fr);
+    grid-template-rows: repeat(var(--gridSize), 1fr);
+    height:500px;
+    width:500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
 .grid
 {
-    border: 1px;
-    border-style:solid;
+    border: .5px solid;
     background-color: whitesmoke;
 }
 
-.grid-hover
+.black
 {
     background-color:black;
 }

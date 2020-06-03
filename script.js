@@ -1,40 +1,48 @@
 const container=document.querySelector('.container');
 const resetBtn=document.querySelector("[name='reset']");
+let gridSize=16;
 
 function createGrid(size)
 {
+    document.documentElement.style.setProperty("--gridSize", gridSize);
     for(let x=0;x<size;x++)
     {
-        let row=document.createElement('div');
-        row.classList.add("grid");
-
         for(let y=0;y<size;y++)
         {
             column=document.createElement('div');
             column.classList.add("grid");
-            column.textContent=y;
-            row.appendChild(column);
+            container.appendChild(column);
         }
-        container.appendChild(row);
     }
 }
 
-createGrid(16);
+createGrid(gridSize);
 
 function addClass(e)
 {
     let cell = e.target;
-    addEventListener('hover', cell.classList.add('grid-hover'));
+    addEventListener('hover', cell.classList.add('black'));
 }
 
-function reset(e)
+function resetGrid()
 {
-    divs.forEach(cell => cell.classList.remove('grid-hover'));
+    gridSize=parseInt(prompt('Please input your desired grid dimensions: ', 16));
+    divs.forEach(cell => cell.classList.remove('black'));
+    divs.forEach(cell => cell.remove(cell));
+    console.log(gridSize);
+    createGrid(gridSize);  
+
+    divs = Array.from(document.querySelectorAll('.grid'));
+    divs.forEach(cell => cell.addEventListener('mouseover', addClass));
+    divs.forEach(cell => cell.classList.remove('black'));
+    console.log(gridSize);
+   
 }
 
-const divs = Array.from(document.querySelectorAll('.grid'));
+let divs = Array.from(document.querySelectorAll('.grid'));
 divs.forEach(cell => cell.addEventListener('mouseover', addClass));
+    
 
-resetBtn.addEventListener('click',reset);
+resetBtn.addEventListener('click',resetGrid);
 
 
