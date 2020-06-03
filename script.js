@@ -26,17 +26,18 @@ function addClass(e)
 
 function resetGrid()
 {
-    gridSize=parseInt(prompt('Please input your desired grid dimensions: ', 16));
-    divs.forEach(cell => cell.classList.remove('black'));
-    divs.forEach(cell => cell.remove(cell));
-    console.log(gridSize);
-    createGrid(gridSize);  
-
-    divs = Array.from(document.querySelectorAll('.grid'));
-    divs.forEach(cell => cell.addEventListener('mouseover', addClass));
-    divs.forEach(cell => cell.classList.remove('black'));
-    console.log(gridSize);
-   
+    gridSize=parseInt(prompt('Please input your desired grid dimensions as a single integer: ', '16'));
+    if (Number.isInteger(gridSize))
+    {
+        divs.forEach(cell => cell.classList.remove('black'));
+        divs.forEach(cell => cell.remove(cell));
+        console.log(gridSize);
+        createGrid(gridSize);  
+    
+        divs = Array.from(document.querySelectorAll('.grid'));
+        divs.forEach(cell => cell.addEventListener('mouseover', addClass));
+        divs.forEach(cell => cell.classList.remove('black'));
+    } 
 }
 
 let divs = Array.from(document.querySelectorAll('.grid'));
