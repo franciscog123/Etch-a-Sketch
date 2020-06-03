@@ -27,6 +27,13 @@ body{
     margin-right: auto;
 }
 
+@media screen and (max-width: 420px) {
+    .container {
+        height:300px;
+        width:300px;
+    }
+  }
+
 
 .grid
 {
