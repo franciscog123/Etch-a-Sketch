@@ -1,3 +1,5 @@
+"use strict";
+
 const container=document.querySelector('.container');
 const image=document.querySelector('.image');
 const resetBtn=document.querySelector("[name='reset']");
@@ -8,6 +10,8 @@ let isColored=false;
 
 function createGrid(size)
 {
+    let column;
+
     document.documentElement.style.setProperty("--gridSize", gridSize);
     for(let x=0;x<size;x++)
     {
@@ -99,7 +103,7 @@ randBtn.addEventListener('click', drawColor);
 //checks to see which element the mouse is currently over and sets background color
 container.onmouseover = function (e) {
     e = e || window.event;
-    evt = e;
+    let evt = e;
     if(isColored)
     {
         evt.target.style.backgroundColor=getRandomColor();
